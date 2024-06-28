@@ -1,0 +1,27 @@
+{
+    "name": "jornboerema/bz-cms",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "JornBoerema\\BzCMS\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jorn Boerema",
+            "email": "jorn@bijvoorbeeldzo.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "filament/support": "^3.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JornBoerema\\BzCMS\\BzCMSServiceProvider"
+            ]
+        }
+    }
+}

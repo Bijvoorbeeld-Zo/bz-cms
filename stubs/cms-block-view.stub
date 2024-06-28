@@ -1,0 +1,5 @@
+@props(['data'])
+
+<div>
+    <!-- Your CMS block view content here -->
+</div>

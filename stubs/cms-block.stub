@@ -1,0 +1,19 @@
+<?php
+
+namespace App\CMSBlocks;
+
+use Filament\Forms\Components\Textarea;
+use JornBoerema\BzCMS\CMSBlocks\PageBlock;
+
+class {{ className }} extends PageBlock
+{
+    protected string $view = 'cms-blocks.{{ viewName }}';
+    protected string $label = '{{ viewName }}';
+
+    public function form(): array
+    {
+        return [
+            // Form components here
+        ];
+    }
+}
