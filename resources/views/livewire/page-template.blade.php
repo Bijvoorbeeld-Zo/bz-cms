@@ -2,7 +2,7 @@
     <title>{{ config('app.name') . ' - ' . $page->title }}</title>
 @endpush
 
-<div>
+<div class="w-full">
     @foreach($page->elements as $element)
         @php
             $block = new $element['type']();
