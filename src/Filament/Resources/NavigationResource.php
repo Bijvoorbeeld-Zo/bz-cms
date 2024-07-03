@@ -73,6 +73,7 @@ class NavigationResource extends Resource
                             ]),
 
                         Repeater::make('children')
+                            ->defaultItems(0)
                             ->visible(fn (Get $get) => $get('type') === 'dropdown')
                             ->columnSpanFull()
                             ->schema([
