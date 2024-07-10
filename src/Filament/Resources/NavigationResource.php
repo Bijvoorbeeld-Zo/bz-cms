@@ -161,4 +161,29 @@ class NavigationResource extends Resource
     {
         return ['name'];
     }
+
+    public static function getNavigationLabel(): string
+    {
+        return __('bz-cms::bz-cms.navigation_resource.nav_label');
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return __('bz-cms::bz-cms.navigation_resource.plural_label');
+    }
+
+    public static function getLabel(): ?string
+    {
+        return __('bz-cms::bz-cms.navigation_resource.label');
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return __('bz-cms::bz-cms.navigation_resource.nav_group');
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return config('bz-cms.navigation_resource.nav_sort');
+    }
 }

@@ -21,6 +21,20 @@ return [
 
     // Page
     'slug' => 'Slug',
-    'elements' => 'Elements'
+    'elements' => 'Elements',
+
+    'navigation_resource' => [
+        'label' => 'Navigation',
+        'nav_label' => 'Navigations',
+        'plural_label' => 'Navigations',
+        'nav_group' => 'CMS',
+    ],
+
+    'page_resource' => [
+        'label' => 'Page',
+        'nav_label' => "Pages",
+        'plural_label' => "Pages",
+        'nav_group' => 'CMS',
+    ],
 
 ];
