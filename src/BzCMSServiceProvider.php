@@ -21,6 +21,7 @@ class BzCMSServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasRoute('web')
             ->hasMigrations('create_cms_tables')
+            ->hasTranslations()
             ->hasCommand(CreateCMSBlockCommand::class)
             ->hasInstallCommand(function (InstallCommand $installCommand) {
                 $installCommand->publishMigrations();

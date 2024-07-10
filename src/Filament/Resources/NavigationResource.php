@@ -40,50 +40,57 @@ class NavigationResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
+                    ->label(__('bz-cms::bz-cms.name'))
                     ->columnSpanFull()
                     ->required(),
 
                 Repeater::make('items')
+                    ->label(__('bz-cms::bz-cms.items'))
                     ->columnSpanFull()
                     ->schema([
-                        TextInput::make('title'),
+                        TextInput::make('title')
+                            ->label(__('bz-cms::bz-cms.title')),
 
                         Section::make()
                             ->columnSpanFull()
                             ->columns(2)
                             ->schema([
                                 Select::make('type')
+                                    ->label(__('bz-cms::bz-cms.type'))
                                     ->columnSpan(1)
                                     ->options([
-                                        'page' => 'Page',
-                                        'external' => 'External',
-                                        'dropdown' => 'Dropdown'
+                                        'page' => __('bz-cms::bz-cms.types.page'),
+                                        'external' => __('bz-cms::bz-cms.types.external'),
+                                        'dropdown' => __('bz-cms::bz-cms.types.dropdown')
                                     ])
                                     ->live(),
 
                                 TextInput::make('url')
-                                    ->label('URL')
+                                    ->label(__('bz-cms::bz-cms.url'))
                                     ->visible(fn (Get $get) => $get('type') === 'external'),
 
                                 Select::make('page_id')
-                                    ->label('Page')
+                                    ->label(__('bz-cms::bz-cms.page'))
                                     ->options(Page::all()->pluck('title', 'id'))
                                     ->visible(fn (Get $get) => $get('type') === 'page')
                                     ->searchable(),
                             ]),
 
                         Repeater::make('children')
+                            ->label(__('bz-cms::bz-cms.children'))
                             ->defaultItems(0)
                             ->visible(fn (Get $get) => $get('type') === 'dropdown')
                             ->columnSpanFull()
                             ->schema([
-                                TextInput::make('title'),
+                                TextInput::make('title')
+                                    ->label(__('bz-cms::bz-cms.title')),
 
                                 Section::make()
                                     ->columnSpanFull()
                                     ->columns(2)
                                     ->schema([
                                         Select::make('type')
+                                            ->label(__('bz-cms::bz-cms.type'))
                                             ->columnSpan(1)
                                             ->options([
                                                 'page' => 'Page',
@@ -92,11 +99,11 @@ class NavigationResource extends Resource
                                             ->live(),
 
                                         TextInput::make('url')
-                                            ->label('URL')
+                                            ->label(__('bz-cms::bz-cms.url'))
                                             ->visible(fn (Get $get) => $get('type') === 'external'),
 
                                         Select::make('page_id')
-                                            ->label('Page')
+                                            ->label(__('bz-cms::bz-cms.page'))
                                             ->options(Page::all()->pluck('title', 'id'))
                                             ->visible(fn (Get $get) => $get('type') === 'page')
                                             ->searchable(),
@@ -111,6 +118,7 @@ class NavigationResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label(__('bz-cms::bz-cms.name'))
                     ->searchable()
                     ->sortable(),
             ])

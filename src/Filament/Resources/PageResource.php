@@ -36,23 +36,26 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Placeholder::make('created_at')
-                    ->label('Created Date')
+                    ->label(__('bz-cms::bz-cms.created_at'))
                     ->content(fn(?Page $record): string => $record?->created_at?->diffForHumans() ?? '-'),
 
                 Placeholder::make('updated_at')
-                    ->label('Last Modified Date')
+                    ->label(__('bz-cms::bz-cms.updated_at'))
                     ->content(fn(?Page $record): string => $record?->updated_at?->diffForHumans() ?? '-'),
 
                 TextInput::make('title')
+                    ->label(__('bz-cms::bz-cms.title'))
                     ->required()
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state))),
 
                 TextInput::make('slug')
+                    ->label(__('bz-cms::bz-cms.slug'))
                     ->required()
                     ->unique(Page::class, 'slug', fn($record) => $record),
 
                 Builder::make('elements')
+                    ->label(__('bz-cms::bz-cms.elements'))
                     ->columnSpanFull()
                     ->blocks(array_map(function ($item) {
                         $block = new $item();
@@ -71,10 +74,12 @@ class PageResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')
+                    ->label(__('bz-cms::bz-cms.title'))
                     ->searchable()
                     ->sortable(),
 
                 TextColumn::make('slug')
+                    ->label(__('bz-cms::bz-cms.slug'))
                     ->searchable()
                     ->sortable(),
             ])
