@@ -22,6 +22,12 @@ return [
     // Page
     'slug' => 'Slug',
     'elements' => 'Elements',
+    'is_hidden' => 'Is hidden',
+    'visible_from' => 'Visible from',
+    'visible_until' => 'Visible until',
+    'group' => 'Group',
+    'is_default' => 'Is default',
+    'visible' => 'Visible',
 
     'navigation_resource' => [
         'label' => 'Navigation',

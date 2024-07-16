@@ -2,6 +2,10 @@
 
 namespace JornBoerema\BzCMS\Filament\Resources;
 
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Toggle;
 use JornBoerema\BzCMS\Filament\Resources\PageResource\Pages;
 use JornBoerema\BzCMS\Models\Page;
 use Filament\Forms\Components\Builder;
@@ -63,6 +67,43 @@ class PageResource extends Resource
                         return Builder\Block::make($item)
                             ->label($block->getLabel())
                             ->schema([
+                                Grid::make(6)
+                                    ->schema([
+                                        Fieldset::make(__('bz-cms::bz-cms.group'))
+                                            ->columnSpan(2)
+                                            ->columns(1)
+                                            ->schema([
+                                                TextInput::make('group_id')
+                                                    ->label(__('bz-cms::bz-cms.group')),
+
+                                                Toggle::make('is_default')
+                                                    ->label(__('bz-cms::bz-cms.is_default')),
+                                            ]),
+
+                                        Fieldset::make(__('bz-cms::bz-cms.visible'))
+                                            ->columnSpan(4)
+                                            ->columns(3)
+                                            ->schema([
+                                                Toggle::make('is_hidden')
+                                                    ->inline(false)
+                                                    ->label(__('bz-cms::bz-cms.is_hidden')),
+
+                                                Grid::make(1)
+                                                    ->columnSpan(2)
+                                                    ->schema([
+                                                        DateTimePicker::make('visible_from')
+                                                            ->label(__('bz-cms::bz-cms.visible_from'))
+                                                            ->seconds(false)
+                                                            ->inlineLabel(true),
+
+                                                        DateTimePicker::make('visible_until')
+                                                            ->label(__('bz-cms::bz-cms.visible_until'))
+                                                            ->seconds(false)
+                                                            ->inlineLabel(true),
+                                                    ]),
+                                            ]),
+                                    ]),
+
                                 ...$block->form()
                             ]);
                     }, config('bz-cms.blocks'))),

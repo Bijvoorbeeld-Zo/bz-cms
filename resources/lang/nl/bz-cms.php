@@ -22,6 +22,12 @@ return [
     // Page
     'slug' => 'Slug',
     'elements' => 'Elementen',
+    'is_hidden' => 'Is verborgen',
+    'visible_from' => 'Zichtbaar vanaf',
+    'visible_until' => 'Zichtbaar tot',
+    'group' => 'Groep',
+    'is_default' => 'Is standaard',
+    'visible' => 'Zichtbaar',
 
     'navigation_resource' => [
         'label' => 'Navigatie',
