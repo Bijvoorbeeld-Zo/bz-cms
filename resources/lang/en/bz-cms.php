@@ -12,6 +12,7 @@ return [
     'type' => 'Type',
     'url' => 'URL',
     'page' => 'Page',
+    'open_new_tab' => 'Open in new tab',
     'children' => 'Children',
     'types' => [
         'page' => 'Page',

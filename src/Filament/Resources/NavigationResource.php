@@ -2,6 +2,7 @@
 
 namespace JornBoerema\BzCMS\Filament\Resources;
 
+use Filament\Forms\Components\Checkbox;
 use JornBoerema\BzCMS\Filament\Resources\NavigationResource\Pages;
 use JornBoerema\BzCMS\Models\Navigation;
 use JornBoerema\BzCMS\Models\Page;
@@ -53,7 +54,7 @@ class NavigationResource extends Resource
 
                         Section::make()
                             ->columnSpanFull()
-                            ->columns(2)
+                            ->columns(3)
                             ->schema([
                                 Select::make('type')
                                     ->label(__('bz-cms::bz-cms.type'))
@@ -74,6 +75,9 @@ class NavigationResource extends Resource
                                     ->options(Page::all()->pluck('title', 'id'))
                                     ->visible(fn (Get $get) => $get('type') === 'page')
                                     ->searchable(),
+
+                                Checkbox::make('open_new_tab')
+                                    ->label(__('bz-cms::bz-cms.open_new_tab'))
                             ]),
 
                         Repeater::make('children')
