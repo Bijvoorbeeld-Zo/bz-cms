@@ -22,6 +22,15 @@ class BzCMSPlugin implements Plugin
         return (bool) $filesystem->exists($roleResourcePath);
     }
 
+    private static function isNavResourcePublished(): bool
+    {
+        $roleResourcePath = app_path((string) Str::of('Filament\\Resources\\NavigationResource.php')->replace('\\', '/'));
+
+        $filesystem = new Filesystem;
+
+        return (bool) $filesystem->exists($roleResourcePath);
+    }
+
     public function getId(): string
     {
         return 'bz-cms';
@@ -34,9 +43,11 @@ class BzCMSPlugin implements Plugin
                 PageResource::class,
             ]);
         }
-        $panel->resources([
-            NavigationResource::class,
-        ]);
+        if (! self::isNavResourcePublished()) {
+            $panel->resources([
+                NavigationResource::class,
+            ]);
+        }
     }
 
 
